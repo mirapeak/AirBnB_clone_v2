@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """Starts a Flask web application.
 The application listens on 0.0.0.0, port 5000.
 Routes:
@@ -45,3 +46,49 @@ def python(text="is cool"):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
+=======
+"""
+Write a script that starts a Flask web application:
+"""
+
+from flask import Flask
+app = Flask(__name__)
+strict_slashes = False
+
+
+@app.route("/")
+def hello():
+    """ root routing """
+    return "Hello HBNB!"
+
+
+@app.route("/hbnb")
+def hello1():
+    """ extension hbnb """
+    return "HBNB"
+
+
+@app.route("/c/<arg>")
+def hello2(arg):
+    """ extension c/text """
+    string = "C " + arg
+    return string.replace("_", " ")
+
+
+@app.route("/python/")
+@app.route("/python")
+def hello3():
+    """ extension /python """
+    return "Python is cool"
+
+
+@app.route("/python/<arg>")
+def hello3a(arg):
+    """ extension python/text """
+    string = "Python " + arg
+    return string.replace("_", " ")
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
+>>>>>>> 42c7cabb40123c7d1a5dc64d6bc33628f2b8267e
